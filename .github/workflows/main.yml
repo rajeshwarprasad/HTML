@@ -13,5 +13,29 @@ jobs:
    - name: Checkout Code
      uses: actions/checkout@v5
      
-   - name: Run some base commands
-     run: ls -al
+   - name: Copy code to EC2
+     uses: appleboy/ecp-action@v1
+     with:
+      host: ${{ secrets.EC2_HOST }}
+      username: ${{ secrets.EC2_USERNAME }}
+      key: ${{ secrets.EC2_KEY }}
+      port: 22
+      sources: ./
+      target: ./
+
+     - name: Copy files to /var/www/html
+     uses: appleboy/ecp-action@v1
+     with:
+      host: ${{ secrets.EC2_HOST }}
+      username: ${{ secrets.EC2_USERNAME }}
+      key: ${{ secrets.EC2_KEY }}
+      port: 22
+      script: |
+       ls -al
+       whoami
+       pwd
+       sudo cp -r * /var/www/html
+       sudo systemctl restart nginx
+      
+      ta
+     
