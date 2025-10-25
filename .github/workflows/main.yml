@@ -14,7 +14,7 @@ jobs:
      uses: actions/checkout@v5
      
    - name: Copy code to EC2
-     uses: appleboy/ecp-action@v1
+     uses: appleboy/scp-action@v1
      with:
       host: ${{ secrets.EC2_HOST }}
       username: ${{ secrets.EC2_USERNAME }}
@@ -23,7 +23,7 @@ jobs:
       sources: ./
       target: ./
 
-     - name: Copy files to /var/www/html
+   - name: Copy files to /var/www/html
      uses: appleboy/ecp-action@v1
      with:
       host: ${{ secrets.EC2_HOST }}
