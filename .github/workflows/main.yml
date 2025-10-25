@@ -24,7 +24,7 @@ jobs:
       target: ./
 
    - name: Copy files to /var/www/html
-     uses: appleboy/ecp-action@v1
+     uses: appleboy/scp-action@v1
      with:
       host: ${{ secrets.EC2_HOST }}
       username: ${{ secrets.EC2_USERNAME }}
