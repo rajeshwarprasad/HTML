@@ -36,6 +36,4 @@ jobs:
        pwd
        sudo cp -r * /var/www/html
        sudo systemctl restart nginx
-      
-      ta
      
