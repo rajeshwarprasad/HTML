@@ -20,8 +20,9 @@ jobs:
       username: ${{ secrets.EC2_USERNAME }}
       key: ${{ secrets.EC2_KEY }}
       port: 22
-      sources: ./
+      source: ./
       target: ./
+
 
    - name: Copy files to /var/www/html
      uses: appleboy/ssh-action@v1
